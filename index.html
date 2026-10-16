@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Giorgia Petracci</title>
+<meta name="description" content="Giorgia Petracci – PhD student in Mathematics at Università degli Studi dell'Insubria. Research in G2-structures, nilmanifolds and homogeneous spaces.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --surface: #ffffff;
+    --text: #1f2430;
+    --muted: #5d6475;
+    --accent: #1e3c6e;
+    --accent-soft: #e6ecf5;
+    --rule: #e2e0da;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #14171d;
+      --surface: #1b1f27;
+      --text: #e6e8ec;
+      --muted: #9aa1b0;
+      --accent: #8fb0e6;
+      --accent-soft: #232c3c;
+      --rule: #2c313b;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #14171d; --surface: #1b1f27; --text: #e6e8ec; --muted: #9aa1b0;
+    --accent: #8fb0e6; --accent-soft: #232c3c; --rule: #2c313b;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+  }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
+  a:hover { border-bottom-color: var(--accent); }
+
+  /* Navigation */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 92%, transparent);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav-inner {
+    max-width: 860px; margin: 0 auto; padding: 0.8rem 16px;
+    display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .nav-name { font-family: "EB Garamond", serif; font-size: 1.25rem; font-weight: 600; color: var(--text); border: 0; }
+  .nav-links { display: flex; gap: 1.2rem; flex-wrap: wrap; font-size: 0.9rem; }
+  .nav-links a { color: var(--muted); border: 0; }
+  .nav-links a:hover { color: var(--accent); }
+
+  main { max-width: 860px; margin: 0 auto; padding: 0 16px 4rem; }
+
+  /* Hero */
+  .hero {
+    display: grid; grid-template-columns: 180px 1fr; gap: 2.5rem; align-items: start;
+    padding: 3.5rem 0 2.5rem;
+  }
+  .photo {
+    width: 180px; height: 180px; border-radius: 50%;
+    background: var(--accent-soft); color: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-family: "EB Garamond", serif; font-size: 3.4rem; font-weight: 500;
+    overflow: hidden;
+  }
+  .photo img { width: 100%; height: 100%; object-fit: cover; }
+  h1 {
+    font-family: "EB Garamond", serif; font-weight: 600; font-size: 2.6rem;
+    line-height: 1.1; margin: 0 0 0.4rem;
+  }
+  .role { color: var(--muted); margin: 0 0 1.2rem; }
+  .role strong { color: var(--text); font-weight: 500; }
+  .hero p { margin: 0 0 1rem; }
+  .links { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.2rem; }
+  .pill {
+    display: inline-block; padding: 0.35rem 0.9rem; border-radius: 999px;
+    border: 1px solid var(--rule); background: var(--surface);
+    font-size: 0.88rem; color: var(--text);
+  }
+  .pill:hover { border-color: var(--accent); color: var(--accent); }
+  .pill.primary { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+  .pill.primary:hover { color: var(--bg); opacity: 0.9; }
+
+  /* Sections */
+  section { padding: 2.2rem 0 0.5rem; border-top: 1px solid var(--rule); scroll-margin-top: 4rem; }
+  h2 {
+    font-family: "EB Garamond", serif; font-weight: 600; font-size: 1.7rem;
+    color: var(--accent); margin: 0 0 1.2rem;
+  }
+  h3 { font-size: 1rem; font-weight: 600; margin: 1.4rem 0 0.4rem; }
+
+  .interests { margin: 0.3rem 0 1rem; padding-left: 1.4rem; }
+  .interests li { padding: 0.1rem 0; }
+  .interests li::marker { color: var(--accent); }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 0.5rem; padding: 0; list-style: none; }
+  .tags li {
+    background: var(--accent-soft); color: var(--accent);
+    padding: 0.25rem 0.75rem; border-radius: 6px; font-size: 0.88rem; font-weight: 500;
+  }
+
+  .entry {
+    display: grid; grid-template-columns: 1fr auto; gap: 0.2rem 1.5rem;
+    padding: 0.75rem 0;
+  }
+  .entry + .entry { border-top: 1px dashed var(--rule); }
+  .entry .title { font-weight: 500; }
+  .entry .title em { font-family: "EB Garamond", serif; font-size: 1.12rem; font-style: italic; font-weight: 500; }
+  .entry .date { color: var(--muted); font-size: 0.9rem; white-space: nowrap; text-align: right; }
+  .entry .where { grid-column: 1 / -1; color: var(--muted); font-size: 0.92rem; }
+
+  .thesis {
+    background: var(--surface); border: 1px solid var(--rule); border-left: 3px solid var(--accent);
+    border-radius: 6px; padding: 1rem 1.2rem; margin: 1rem 0;
+  }
+  .thesis .label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+  .thesis .ttl { font-family: "EB Garamond", serif; font-style: italic; font-size: 1.25rem; margin: 0.2rem 0; }
+  .thesis .sub { color: var(--muted); font-size: 0.92rem; }
+
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .contact-grid p { margin: 0; }
+  .small { font-size: 0.9rem; color: var(--muted); }
+
+  footer {
+    max-width: 860px; margin: 0 auto; padding: 1.5rem 16px 2.5rem;
+    border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.82rem;
+  }
+
+  @media (max-width: 640px) {
+    .hero { grid-template-columns: 1fr; gap: 1.5rem; padding-top: 2.2rem; text-align: left; }
+    .photo { width: 120px; height: 120px; font-size: 2.4rem; }
+    h1 { font-size: 2.1rem; }
+    .entry { grid-template-columns: 1fr; }
+    .entry .date { text-align: left; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .nav-links { gap: 0.9rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-name" href="#">Giorgia Petracci</a>
+    <div class="nav-links">
+      <a href="#research">Research</a>
+      <a href="#thesis">Thesis</a>
+      <a href="#publications">Publications</a>
+      <a href="#stays">Stays</a>
+      <a href="#talks">Talks</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#cv">CV</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <header class="hero">
+    <!-- To add a photo: put photo.jpg in the repository and replace "GP" with
+         <img src="photo.jpg" alt="Giorgia Petracci"> -->
+    <div class="photo">GP</div>
+    <div>
+      <h1>Giorgia Petracci</h1>
+      <p class="role"><strong>PhD student in Mathematics</strong><br>
+        Dipartimento di Scienza ed Alta Tecnologia,
+        Università degli Studi dell'Insubria, Como</p>
+      <p>I work in differential geometry. My research focuses on
+        G<sub>2</sub>- and Spin(7)-structures, particularly on nilmanifolds and
+        homogeneous spaces, and on their relation with special metrics such as
+        nilsolitons.</p>
+      <p>My advisor is <a href="https://www.uninsubria.it/">Giovanni Bazzoni</a>.
+        I expect to defend my PhD thesis in May 2027.</p>
+      <div class="links">
+        <a class="pill primary" href="cv.pdf">Curriculum vitæ (PDF)</a>
+        <a class="pill" href="mailto:gpetracci@uninsubria.it">Email</a>
+        <a class="pill" href="https://arxiv.org/search/?searchtype=author&amp;query=Petracci%2C+Giorgia">arXiv</a>
+        <a class="pill" href="https://github.com/gpetracci">GitHub</a>
+        <!-- Uncomment and fill in when available:
+        <a class="pill" href="https://scholar.google.com/citations?user=XXXX">Google Scholar</a>
+        <a class="pill" href="https://orcid.org/0000-0000-0000-0000">ORCID</a>
+        -->
+      </div>
+    </div>
+  </header>
+
+  <section id="research">
+    <h2>Research</h2>
+    <ul class="interests">
+      <li>Nilmanifolds</li>
+      <li>Nilsoliton metrics</li>
+      <li>Homogeneous spaces</li>
+      <li>G<sub>2</sub>-structures</li>
+      <li>Spin(7)-structures</li>
+    </ul>
+
+  </section>
+
+  <section id="thesis">
+    <h2>PhD Thesis</h2>
+    <div class="entry">
+      <div class="title"><em>Purely coclosed G<sub>2</sub>-structures on nilmanifolds and on homogeneous spaces</em></div>
+      <div class="date">expected May 2027</div>
+      <div class="where">Advisor: Prof. Giovanni Bazzoni · Università degli Studi dell'Insubria</div>
+    </div>
+  </section>
+
+  <section id="publications">
+    <h2>Publications</h2>
+    <div class="entry">
+      <div class="title"><em>Purely coclosed G<sub>2</sub>-structures on nilmanifolds – II</em></div>
+      <div class="date">2026</div>
+      <div class="where">with Giovanni Bazzoni · <em>Mathematische Nachrichten</em> ·
+        <a href="https://doi.org/10.1002/mana.70247">doi:10.1002/mana.70247</a> ·
+        <a href="https://arxiv.org/abs/2510.25511">arXiv:2510.25511</a> ·
+        <a href="https://github.com/gpetracci/PURELY-COCLOSED-G2--STRUCTURES-ON-NILMANIFOLDS---II">code (GitHub)</a></div>
+    </div>
+
+    <!-- To add another publication, copy the block above. -->
+  </section>
+
+  <section id="stays">
+    <h2>Research Stays</h2>
+    <div class="entry">
+      <div class="title">Universidad Nacional de Córdoba, Argentina</div>
+      <div class="date">March – June 2026</div>
+      <div class="where">FaMAF, hosted by Jorge Lauret</div>
+    </div>
+  </section>
+
+  <section id="talks">
+    <h2>Talks</h2>
+    <div class="entry">
+      <div class="title"><em>Purely coclosed G<sub>2</sub>-structures inducing nilsolitons</em></div>
+      <div class="date">April 2026</div>
+      <div class="where">Seminario del Grupo de Geometría Diferencial, Universidad Nacional de Córdoba, Argentina</div>
+    </div>
+    <div class="entry">
+      <div class="title"><em>Purely coclosed G<sub>2</sub>-structures on nilmanifolds</em></div>
+      <div class="date">February 2026</div>
+      <div class="where">ASK seminar, Alma Mater Studiorum – Università di Bologna, Italy</div>
+    </div>
+    <div class="entry">
+      <div class="title"><em>Purely coclosed G<sub>2</sub>-structures on nilmanifolds</em></div>
+      <div class="date">November 2025</div>
+      <div class="where">Insalate di matematica, Università degli Studi di Milano-Bicocca, Italy</div>
+    </div>
+  </section>
+
+  <section id="teaching">
+    <h2>Teaching</h2>
+    <div class="entry">
+      <div class="title">Teaching assistant, <em>Geometria 2</em></div>
+      <div class="date">2024</div>
+      <div class="where">Università degli Studi dell'Insubria</div>
+    </div>
+    <div class="entry">
+      <div class="title">Teacher of Mathematics and Physics</div>
+      <div class="date">2023</div>
+      <div class="where">Istituto Sant'Alberto Magno, Bologna</div>
+    </div>
+    <div class="entry">
+      <div class="title">Teaching assistant, <em>Geometria 1A</em></div>
+      <div class="date">2021 – 2022</div>
+      <div class="where">Alma Mater Studiorum – Università di Bologna</div>
+    </div>
+  </section>
+
+  <section id="cv">
+    <h2>Curriculum vitæ</h2>
+    <div class="entry">
+      <div class="title">PhD in Mathematics (in progress)</div>
+      <div class="date">2023 – 2027</div>
+      <div class="where">Università degli Studi dell'Insubria</div>
+    </div>
+    <div class="entry">
+      <div class="title">MS in Mathematics</div>
+      <div class="date">2022</div>
+      <div class="where">Alma Mater Studiorum – Università di Bologna</div>
+    </div>
+    <div class="entry">
+      <div class="title">BS in Mathematics</div>
+      <div class="date">2019</div>
+      <div class="where">Alma Mater Studiorum – Università di Bologna</div>
+    </div>
+    <p class="small" style="margin-top:1rem">
+      Languages: Italian (native), English (fluent), Spanish (fluent) ·
+      Software: SageMath, Python, Matlab, LaTeX<br>
+      Full CV: <a href="cv.pdf">download PDF</a>
+    </p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-grid">
+      <p><strong>Email</strong><br>
+        <a href="mailto:gpetracci@uninsubria.it">gpetracci@uninsubria.it</a></p>
+      <p><strong>Address</strong><br>
+        Dipartimento di Scienza ed Alta Tecnologia<br>
+        Università degli Studi dell'Insubria<br>
+        Via Valleggio 11, 22100 Como, Italy</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 Giorgia Petracci · Last updated October 2026
+</footer>
+
+</body>
+</html>
